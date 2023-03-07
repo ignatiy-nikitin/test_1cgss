@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  1cgss_sync_python:
+    image: 1cgss_sync_python
+    command: python main.py
+    ports:
+      - "${PORT:-8000}:8000"
+    expose:
+      - ${PORT:-8000}
+    env_file:
+      - .env
+    volumes:
+      - "${XML_FILES_DIR_PATH}:/xml_files"
